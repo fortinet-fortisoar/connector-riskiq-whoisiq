@@ -1,0 +1,861 @@
+{
+  "name": "riskiq-whoisiq",
+  "label": "RiskIQ WHOISIQ",
+  "version": "1.0.0",
+  "description": "The WHOISIQ™ allow you to search for WHOISIQ™ records by the various attributes on those records. Currently, the API supports searching by (physical) address, domain, IP Address, email, (registrant) name, nameserver, (registrant) organization, and (registrant) phone number.",
+  "publisher": "Community",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "category": "Threat Intelligence",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "server_url",
+        "description": "Server URL of RiskIQ WHOISIQ to which you will connect and perform automated operations.",
+        "placeholder": "e.g. https://api.riskiq.net",
+        "value": "https://api.riskiq.net"
+      },
+      {
+        "title": "Username",
+        "tooltip": "Username of RiskIQ server",
+        "description": "Username configured for your account to access the RiskIQ WHOISIQ server.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "username"
+      },
+      {
+        "title": "API Key",
+        "tooltip": "Api key of RiskIQ server",
+        "description": "API key configured for your account to access the RiskIQ WHOISIQ server.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "api_key"
+      },
+      {
+        "title": "Verify SSL",
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True.",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_address",
+      "title": "Get Address",
+      "description": "Retrieves (physical) address, domain, IP Address, email, (registrant) name, nameserver, (registrant) organization, and (registrant) phone number. fromRiskIQ WHOISIQ.",
+      "category": "investigation",
+      "annotation": "get_address",
+      "output_schema": {
+        "results": 0,
+        "domains": [
+          {
+            "domain": "",
+            "registrar": "",
+            "whoisServer": "",
+            "registered": "",
+            "registryUpdatedAt": "",
+            "expiresAt": "",
+            "contactEmail": "",
+            "nameServers": [
+              ""
+            ],
+            "registrant": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "admin": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "billing": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "tech": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "zone": {},
+            "text": "",
+            "lastLoadedAt": ""
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "title": "Get Address",
+          "name": "address",
+          "tooltip": "Specify (Physical) address, domain, IP Address, email, (registrant) name, nameserver, (registrant) organization, and (registrant) phone number.",
+          "description": "Specify (physical) address, domain, IP Address, email, (registrant) name, nameserver, (registrant) organization, and (registrant) phone number..",
+          "placeholder": "e.g iqwhois.com",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        },
+        {
+          "title": "Exact Match",
+          "name": "exact",
+          "tooltip": "Search for an exact match. Valid values are true and false.",
+          "description": "Search for an exact match. Valid values are true and false.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox"
+        },
+        {
+          "title": "Maximum Results",
+          "name": "maxResults",
+          "tooltip": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "description": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "validation": {
+            "minlength": 0,
+            "maxlength": 10000
+          },
+          "minimum": 0,
+          "maximum": 10000
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "get_domain",
+      "title": "Get Domain",
+      "description": "Get the current WHOIS for a domain.",
+      "category": "investigation",
+      "annotation": "get_domain",
+      "output_schema": {
+        "totalRecords": "",
+        "success": "",
+        "results": [
+          {
+            "results": 0,
+            "domains": [
+              {
+                "domain": "",
+                "registrar": "",
+                "whoisServer": "",
+                "registered": "",
+                "registryUpdatedAt": "",
+                "expiresAt": "",
+                "contactEmail": "",
+                "nameServers": [
+                  ""
+                ],
+                "registrant": {
+                  "domain": "",
+                  "email": "",
+                  "name": "",
+                  "organization": "",
+                  "street": "",
+                  "city": "",
+                  "state": "",
+                  "postalCode": "",
+                  "country": "",
+                  "telephone": ""
+                },
+                "admin": {
+                  "domain": "",
+                  "email": "",
+                  "name": "",
+                  "organization": "",
+                  "street": "",
+                  "city": "",
+                  "state": "",
+                  "postalCode": "",
+                  "country": "",
+                  "telephone": ""
+                },
+                "billing": {
+                  "domain": "",
+                  "email": "",
+                  "name": "",
+                  "organization": "",
+                  "street": "",
+                  "city": "",
+                  "state": "",
+                  "postalCode": "",
+                  "country": "",
+                  "telephone": ""
+                },
+                "tech": {
+                  "domain": "",
+                  "email": "",
+                  "name": "",
+                  "organization": "",
+                  "street": "",
+                  "city": "",
+                  "state": "",
+                  "postalCode": "",
+                  "country": "",
+                  "telephone": ""
+                },
+                "zone": {},
+                "text": "",
+                "lastLoadedAt": ""
+              }
+            ]
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "title": "Domain",
+          "name": "domain",
+          "tooltip": "Specify the domain or IP Address you wish to search for.",
+          "description": "Specify the domain or IP Address you wish to search for.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        },
+        {
+          "title": "Exact Match",
+          "name": "exact",
+          "tooltip": "Search for an exact match. Valid values are true and false.",
+          "description": "Search for an exact match. Valid values are true and false.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox"
+        },
+        {
+          "title": "Maximum Results",
+          "name": "maxResults",
+          "tooltip": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "description": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "validation": {
+            "minlength": 0,
+            "maxlength": 10000
+          },
+          "minimum": 0,
+          "maximum": 10000
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "get_email",
+      "title": "Get Email Address",
+      "description": "Get WHOIS records associated with an email address.",
+      "category": "investigation",
+      "annotation": "get_email",
+      "output_schema": {
+        "results": "",
+        "domains": [
+          {
+            "domain": "",
+            "registrar": "",
+            "whoisServer": "",
+            "registered": "",
+            "registryUpdatedAt": "",
+            "expiresAt": "",
+            "contactEmail": "",
+            "nameServers": [
+            ],
+            "registrant": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "admin": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "billing": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "tech": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "zone": {},
+            "text": "",
+            "lastLoadedAt": ""
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "title": "Email",
+          "name": "email",
+          "tooltip": "Specify the email address you wish to search for.",
+          "description": "Specify the email address you wish to search for.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        },
+        {
+          "title": "Exact Match",
+          "name": "exact",
+          "tooltip": "Search for an exact match. Valid values are true and false.",
+          "description": "Search for an exact match. Valid values are true and false.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox"
+        },
+        {
+          "title": "Maximum Results",
+          "name": "maxResults",
+          "tooltip": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "description": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "validation": {
+            "minlength": 0,
+            "maxlength": 10000
+          },
+          "minimum": 0,
+          "maximum": 10000
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "get_name",
+      "title": "Get Name",
+      "description": "Get WHOIS records associated with a name.",
+      "category": "investigation",
+      "annotation": "get_name",
+      "output_schema": {
+        "results": "",
+        "domains": [
+          {
+            "domain": "",
+            "registrar": "",
+            "whoisServer": "",
+            "registered": "",
+            "registryUpdatedAt": "",
+            "expiresAt": "",
+            "contactEmail": "",
+            "nameServers": [
+            ],
+            "registrant": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "admin": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "billing": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "tech": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "zone": {},
+            "text": "",
+            "lastLoadedAt": ""
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "title": "Name",
+          "name": "name",
+          "tooltip": "Specify the name you wish to search for..",
+          "description": "Specify the name you wish to search for..",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        },
+        {
+          "title": "Exact Match",
+          "name": "exact",
+          "tooltip": "Search for an exact match. Valid values are true and false.",
+          "description": "Search for an exact match. Valid values are true and false.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox"
+        },
+        {
+          "title": "Maximum Results",
+          "name": "maxResults",
+          "tooltip": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "description": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "validation": {
+            "minlength": 0,
+            "maxlength": 10000
+          },
+          "minimum": 0,
+          "maximum": 10000
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "get_name_server",
+      "title": "Get Name Server",
+      "description": "Get WHOIS records associated with a name server.",
+      "category": "investigation",
+      "annotation": "get_name_server",
+      "output_schema": {
+        "results": "",
+        "domains": [
+          {
+            "domain": "",
+            "registrar": "",
+            "whoisServer": "",
+            "registered": "",
+            "registryUpdatedAt": "",
+            "expiresAt": "",
+            "contactEmail": "",
+            "nameServers": [
+            ],
+            "registrant": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "admin": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "billing": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "tech": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "zone": {},
+            "text": "",
+            "lastLoadedAt": ""
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "title": "Name Server",
+          "name": "nameserver",
+          "tooltip": "Specify the name server you wish to search for..",
+          "description": "Specify the name server you wish to search for.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        },
+        {
+          "title": "Exact Match",
+          "name": "exact",
+          "tooltip": "Search for an exact match. Valid values are true and false.",
+          "description": "Search for an exact match. Valid values are true and false.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox"
+        },
+        {
+          "title": "Maximum Results",
+          "name": "maxResults",
+          "tooltip": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "description": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "validation": {
+            "minlength": 0,
+            "maxlength": 10000
+          },
+          "minimum": 0,
+          "maximum": 10000
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "get_org",
+      "title": "Get Organization",
+      "description": "Get WHOIS records associated with an organization.",
+      "category": "investigation",
+      "annotation": "get_org",
+      "output_schema": {
+        "results": "",
+        "domains": [
+          {
+            "domain": "",
+            "registrar": "",
+            "whoisServer": "",
+            "registered": "",
+            "registryUpdatedAt": "",
+            "expiresAt": "",
+            "contactEmail": "",
+            "nameServers": [
+            ],
+            "registrant": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "admin": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "billing": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "tech": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "zone": {},
+            "text": "",
+            "lastLoadedAt": ""
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "title": "Organization",
+          "name": "org",
+          "tooltip": "Specify the organization you wish to search for.",
+          "description": "Specify the organization you wish to search for.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        },
+        {
+          "title": "Exact Match",
+          "name": "exact",
+          "tooltip": "Search for an exact match. Valid values are true and false.",
+          "description": "Search for an exact match. Valid values are true and false.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox"
+        },
+        {
+          "title": "Maximum Results",
+          "name": "maxResults",
+          "tooltip": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "description": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "validation": {
+            "minlength": 0,
+            "maxlength": 10000
+          },
+          "minimum": 0,
+          "maximum": 10000
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "get_phone",
+      "title": "Get Phone Number",
+      "description": "Get WHOIS records associated with a phone number.",
+      "category": "investigation",
+      "annotation": "get_phone",
+      "output_schema": {
+        "results": 0,
+        "domains": [
+          {
+            "domain": "",
+            "registrar": "",
+            "whoisServer": "",
+            "registered": "",
+            "registryUpdatedAt": "",
+            "expiresAt": "",
+            "contactEmail": "",
+            "nameServers": [
+            ],
+            "registrant": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "admin": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "billing": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "tech": {
+              "domain": "",
+              "email": "",
+              "name": "",
+              "organization": "",
+              "street": "",
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "country": "",
+              "telephone": ""
+            },
+            "zone": {},
+            "text": "",
+            "lastLoadedAt": ""
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "title": "Phone Number",
+          "name": "phone",
+          "tooltip": "Specify the phone number you wish to search for.",
+          "description": "Specify the phone number you wish to search for.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text"
+        },
+        {
+          "title": "Exact Match",
+          "name": "exact",
+          "tooltip": "Search for an exact match. Valid values are true and false.",
+          "description": "Search for an exact match. Valid values are true and false.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox"
+        },
+        {
+          "title": "Maximum Results",
+          "name": "maxResults",
+          "tooltip": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "description": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "validation": {
+            "minlength": 0,
+            "maxlength": 10000
+          },
+          "minimum": 0,
+          "maximum": 10000
+        }
+      ],
+      "enabled": true
+    }
+  ]
+}
