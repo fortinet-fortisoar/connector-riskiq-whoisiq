@@ -1,0 +1,704 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - RiskIQ WHOISIQ - 1.0.0",
+      "description": "Sample playbooks for \"RiskIQ WHOISIQ\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
+      "visible": true,
+      "image": "/api/3/images/082d3994-4eba-49b5-8548-33de25cc46cc",
+      "uuid": "d99eed0b-65f1-4c43-91e0-9f617e655b37",
+      "id": 115,
+      "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+      "createDate": 1638880550,
+      "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+      "modifyDate": 1638880550,
+      "recordTags": [],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Email Address",
+          "aliasName": null,
+          "tag": "#RiskIQ WHOISIQ",
+          "description": "Get WHOIS records associated with an email address.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1638880992,
+          "collection": "/api/3/workflow_collections/d99eed0b-65f1-4c43-91e0-9f617e655b37",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/e93edc2e-3ca8-4900-9754-2c183fcf8eac",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "e54a248f-b610-46b2-8d19-97282b87c8bf",
+                "title": "RiskIQ WHOISIQ: Get Email Address",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "e93edc2e-3ca8-4900-9754-2c183fcf8eac",
+              "id": 6518
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Email Address",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ WHOISIQ",
+                "config": "''",
+                "params": {
+                  "email": "",
+                  "exact": "",
+                  "maxResults": ""
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-whoisiq",
+                "operation": "get_email",
+                "operationTitle": "Get Email Address",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "b636cc1c-70aa-4f23-9ed5-33711c961711",
+              "id": 6519
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get Email Address",
+              "targetStep": "/api/3/workflow_steps/b636cc1c-70aa-4f23-9ed5-33711c961711",
+              "sourceStep": "/api/3/workflow_steps/e93edc2e-3ca8-4900-9754-2c183fcf8eac",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "a188930a-7d3c-4b1d-bd66-a484f5fa818c"
+            }
+          ],
+          "priority": null,
+          "uuid": "93ab9f47-547b-416d-ba89-b71a7e64b0e7",
+          "recordTags": [
+            "RiskIQ",
+            "WHOISIQ"
+          ],
+          "id": 1346,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1638880550,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1638880992,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Domain",
+          "aliasName": null,
+          "tag": "#RiskIQ WHOISIQ",
+          "description": "Get the current WHOIS for a domain.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1638880969,
+          "collection": "/api/3/workflow_collections/d99eed0b-65f1-4c43-91e0-9f617e655b37",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/4d1c9a25-8886-4085-b09e-ed9c112ed1e0",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "a54f9f19-7d97-4e1c-9846-c8e7e19fee1e",
+                "title": "RiskIQ WHOISIQ: Get Domain",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "4d1c9a25-8886-4085-b09e-ed9c112ed1e0",
+              "id": 6516
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Domain",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ WHOISIQ",
+                "config": "''",
+                "params": {
+                  "exact": "",
+                  "domain": "",
+                  "maxResults": ""
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-whoisiq",
+                "operation": "get_domain",
+                "operationTitle": "Get Domain",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "e3faac55-7ae9-4b65-a523-ff8cb43db919",
+              "id": 6517
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get Domain",
+              "targetStep": "/api/3/workflow_steps/e3faac55-7ae9-4b65-a523-ff8cb43db919",
+              "sourceStep": "/api/3/workflow_steps/4d1c9a25-8886-4085-b09e-ed9c112ed1e0",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "527f2454-cf47-4820-934c-f51eb53a0df7"
+            }
+          ],
+          "priority": null,
+          "uuid": "9d60dbee-65ab-431c-886b-3d6137e99f73",
+          "recordTags": [
+            "RiskIQ",
+            "WHOISIQ"
+          ],
+          "id": 1345,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1638880550,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1638880970,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Name",
+          "aliasName": null,
+          "tag": "#RiskIQ WHOISIQ",
+          "description": "Get WHOIS records associated with a name.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1638881010,
+          "collection": "/api/3/workflow_collections/d99eed0b-65f1-4c43-91e0-9f617e655b37",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/534caf7e-1182-4e61-9db9-e354505fe2de",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "f5fd5ff9-0e02-45f7-9561-c8e5c7ebee13",
+                "title": "RiskIQ WHOISIQ: Get Name",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "534caf7e-1182-4e61-9db9-e354505fe2de",
+              "id": 6520
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Name",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ WHOISIQ",
+                "config": "''",
+                "params": {
+                  "name": "",
+                  "exact": "",
+                  "maxResults": ""
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-whoisiq",
+                "operation": "get_name",
+                "operationTitle": "Get Name",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "b544f487-34a9-4f8c-a42c-3010acce4d0e",
+              "id": 6521
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get Name",
+              "targetStep": "/api/3/workflow_steps/b544f487-34a9-4f8c-a42c-3010acce4d0e",
+              "sourceStep": "/api/3/workflow_steps/534caf7e-1182-4e61-9db9-e354505fe2de",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "6e2e0aee-89a8-4c9e-870a-a4d9d16a19f5"
+            }
+          ],
+          "priority": null,
+          "uuid": "a08cb748-80d7-4d7c-8f3b-0599e4b90460",
+          "recordTags": [
+            "RiskIQ",
+            "WHOISIQ"
+          ],
+          "id": 1347,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1638880550,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1638881011,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Address",
+          "aliasName": null,
+          "tag": "#RiskIQ WHOISIQ",
+          "description": "Retrieves (physical) address, domain, IP Address, email, (registrant) name, nameserver, (registrant) organization, and (registrant) phone number. fromRiskIQ WHOISIQ.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1638880944,
+          "collection": "/api/3/workflow_collections/d99eed0b-65f1-4c43-91e0-9f617e655b37",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/c2373f88-7a33-48e3-adb1-cbdf32683638",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "dbe8848f-3e21-440b-88a6-6f04744bdee0",
+                "title": "RiskIQ WHOISIQ: Get Address",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "c2373f88-7a33-48e3-adb1-cbdf32683638",
+              "id": 6514
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Address",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ WHOISIQ",
+                "config": "''",
+                "params": {
+                  "exact": "",
+                  "address": "",
+                  "maxResults": ""
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-whoisiq",
+                "operation": "get_address",
+                "operationTitle": "Get Address",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "cbfb2d71-8e6b-4365-90b5-677d72e8b8d9",
+              "id": 6515
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get Address",
+              "targetStep": "/api/3/workflow_steps/cbfb2d71-8e6b-4365-90b5-677d72e8b8d9",
+              "sourceStep": "/api/3/workflow_steps/c2373f88-7a33-48e3-adb1-cbdf32683638",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "ebbdb2e3-c528-4af3-91cf-9a1f29d7213d"
+            }
+          ],
+          "priority": null,
+          "uuid": "a2a3f32a-d171-4624-b21a-6d8a9298dc5c",
+          "recordTags": [
+            "RiskIQ",
+            "WHOISIQ"
+          ],
+          "id": 1344,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1638880550,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1638880945,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Organization",
+          "aliasName": null,
+          "tag": "#RiskIQ WHOISIQ",
+          "description": "Get WHOIS records associated with an organization.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1638881204,
+          "collection": "/api/3/workflow_collections/d99eed0b-65f1-4c43-91e0-9f617e655b37",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/810f24e1-6b0f-4cab-9a6f-68a60e93ebb0",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "c97b8449-890c-4c8a-88bd-7c1ae13ba680",
+                "title": "RiskIQ WHOISIQ: Get Organization",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "810f24e1-6b0f-4cab-9a6f-68a60e93ebb0",
+              "id": 6524
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Organization",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ WHOISIQ",
+                "config": "''",
+                "params": {
+                  "org": "",
+                  "exact": "",
+                  "maxResults": ""
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-whoisiq",
+                "operation": "get_org",
+                "operationTitle": "Get Organization",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "e99ca374-1865-437c-a231-7bf1c45f752a",
+              "id": 6525
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get Organization",
+              "targetStep": "/api/3/workflow_steps/e99ca374-1865-437c-a231-7bf1c45f752a",
+              "sourceStep": "/api/3/workflow_steps/810f24e1-6b0f-4cab-9a6f-68a60e93ebb0",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "74438fbf-36b4-42de-bddf-e8ffe36cc284"
+            }
+          ],
+          "priority": null,
+          "uuid": "a3891d5f-1868-498b-ac0a-383faa93332f",
+          "recordTags": [
+            "RiskIQ",
+            "WHOISIQ"
+          ],
+          "id": 1349,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1638880550,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1638881204,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Phone Number",
+          "aliasName": null,
+          "tag": "#RiskIQ WHOISIQ",
+          "description": "Get WHOIS records associated with a phone number.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1638881221,
+          "collection": "/api/3/workflow_collections/d99eed0b-65f1-4c43-91e0-9f617e655b37",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/f55968c2-213e-4698-a9d6-f723d72c6b50",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "0ff48653-72f7-4126-b1fc-8d88526b3761",
+                "title": "RiskIQ WHOISIQ: Get Phone Number",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "f55968c2-213e-4698-a9d6-f723d72c6b50",
+              "id": 6526
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Phone Number",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ WHOISIQ",
+                "config": "''",
+                "params": {
+                  "exact": "",
+                  "phone": "",
+                  "maxResults": ""
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-whoisiq",
+                "operation": "get_phone",
+                "operationTitle": "Get Phone Number",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "ccade7e0-c5ad-4129-a5f9-f74afc668ebd",
+              "id": 6527
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get Phone Number",
+              "targetStep": "/api/3/workflow_steps/ccade7e0-c5ad-4129-a5f9-f74afc668ebd",
+              "sourceStep": "/api/3/workflow_steps/f55968c2-213e-4698-a9d6-f723d72c6b50",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "cae2d9b7-a0ba-4c7d-80b1-b2c1c52eb6cb"
+            }
+          ],
+          "priority": null,
+          "uuid": "bdd9a378-f644-4dca-bc8d-b6e656b1a63f",
+          "recordTags": [
+            "RiskIQ",
+            "WHOISIQ"
+          ],
+          "id": 1350,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1638880550,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1638881222,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Name Server",
+          "aliasName": null,
+          "tag": "#RiskIQ WHOISIQ",
+          "description": "Get WHOIS records associated with a name server.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1638881135,
+          "collection": "/api/3/workflow_collections/d99eed0b-65f1-4c43-91e0-9f617e655b37",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/e74b6f33-7df1-4de1-82bc-d0894d015e7b",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "6a9eea62-c9dc-4d57-aa45-84998ad77372",
+                "title": "RiskIQ WHOISIQ: Get Name Server",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "e74b6f33-7df1-4de1-82bc-d0894d015e7b",
+              "id": 6522
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Name Server",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ WHOISIQ",
+                "config": "''",
+                "params": {
+                  "exact": "",
+                  "maxResults": "",
+                  "nameserver": ""
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-whoisiq",
+                "operation": "get_name_server",
+                "operationTitle": "Get Name Server",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "e69f16c6-5cf0-40e5-8051-7e892a4b1e34",
+              "id": 6523
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get Name Server",
+              "targetStep": "/api/3/workflow_steps/e69f16c6-5cf0-40e5-8051-7e892a4b1e34",
+              "sourceStep": "/api/3/workflow_steps/e74b6f33-7df1-4de1-82bc-d0894d015e7b",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "3ae9c547-67f0-48d7-b354-a3cc1fa93cde"
+            }
+          ],
+          "priority": null,
+          "uuid": "ecc26fbe-00a7-4da1-a85a-10424914c22e",
+          "recordTags": [
+            "RiskIQ",
+            "WHOISIQ"
+          ],
+          "id": 1348,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1638880550,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1638881135,
+          "owners": [],
+          "isPrivate": false
+        }
+      ]
+    }
+  ],
+  "exported_tags": [
+    "RiskIQ",
+    "WHOISIQ"
+  ]
+}
