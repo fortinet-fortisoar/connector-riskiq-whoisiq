@@ -10,6 +10,7 @@ from .operations import operations, _check_health
 
 logger = get_logger('riskiq-whoisiq')
 
+
 class RiskIQWHOISIQ(Connector):
     def execute(self, config, operation, params, **kwargs):
         action = operations.get(operation)

@@ -620,7 +620,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text",
+          "type": "integer",
           "validation": {
             "minlength": 0,
             "maxlength": 10000
@@ -751,7 +751,7 @@
       "category": "investigation",
       "annotation": "get_phone",
       "output_schema": {
-        "results": 0,
+        "results": "",
         "domains": [
           {
             "domain": "",
@@ -836,7 +836,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "checkbox"
+          "type": "checkbox",
+          "value": false
         },
         {
           "title": "Maximum Results",
