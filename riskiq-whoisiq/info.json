@@ -2,14 +2,14 @@
   "name": "riskiq-whoisiq",
   "label": "RiskIQ WHOISIQ",
   "version": "1.0.0",
-  "description": "The WHOISIQ™ allow you to search for WHOISIQ™ records by the various attributes on those records. Currently, the API supports searching by (physical) address, domain, IP Address, email, (registrant) name, nameserver, (registrant) organization, and (registrant) phone number.",
+  "description": "The WHOISIQ™ allow you to search for WHOISIQ™ records by the various attributes on those records. Currently, the API supports searching by (physical) address, domain, IP Address, email, (registrant) name, nameserver, (registrant) organization, and (registrant) phone number. This connector facilitates automated interactions, with a RiskIQ WHOISIQ server using FortiSOAR™ playbooks.",
   "publisher": "Community",
   "cs_approved": false,
   "cs_compatible": true,
   "category": "Threat Intelligence",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/riskiq-whoisiq/220/riskiq-whoisiq-v1-0-0",
   "configuration": {
     "fields": [
       {
@@ -56,7 +56,7 @@
     {
       "operation": "get_address",
       "title": "Get Address",
-      "description": "Retrieves (physical) address, domain, IP Address, email, (registrant) name, nameserver, (registrant) organization, and (registrant) phone number. fromRiskIQ WHOISIQ.",
+      "description": "Retrieves the (physical) address, domain, IP Address, email, (registrant) name, nameserver, (registrant) organization, and (registrant) phone number from RiskIQ WHOISIQ based on the address information and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_address",
       "output_schema": {
@@ -121,7 +121,7 @@
               "country": "",
               "telephone": ""
             },
-            "zone": {},
+            "zone": "",
             "text": "",
             "lastLoadedAt": ""
           }
@@ -132,7 +132,7 @@
           "title": "Get Address",
           "name": "address",
           "tooltip": "Specify (Physical) address, domain, IP Address, email, (registrant) name, nameserver, (registrant) organization, and (registrant) phone number.",
-          "description": "Specify (physical) address, domain, IP Address, email, (registrant) name, nameserver, (registrant) organization, and (registrant) phone number..",
+          "description": "Specify the (physical) address, domain, IP Address, email, (registrant) name, nameserver, (registrant) organization, or (registrant) phone number based on which you want to retrieve information from RiskIQ WHOISIQ.",
           "placeholder": "e.g iqwhois.com",
           "required": true,
           "editable": true,
@@ -143,7 +143,7 @@
           "title": "Exact Match",
           "name": "exact",
           "tooltip": "Search for an exact match. Valid values are true and false.",
-          "description": "Search for an exact match. Valid values are true and false.",
+          "description": "Select this checkbox if you retrieve only those results from RiskIQ WHOISIQ that are an exact match to the address information you have specified.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -153,7 +153,7 @@
           "title": "Maximum Results",
           "name": "maxResults",
           "tooltip": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
-          "description": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "description": "Specify the maximum number of results that this operation should return. By default, this is set to 1000 and its maximum value is 10000.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -171,7 +171,7 @@
     {
       "operation": "get_domain",
       "title": "Get Domain",
-      "description": "Get the current WHOIS for a domain.",
+      "description": "Retrieves the current WHOIS information for the specified domain from RiskIQ WHOISIQ based on the domain name or IP address and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_domain",
       "output_schema": {
@@ -252,8 +252,8 @@
         {
           "title": "Domain",
           "name": "domain",
-          "tooltip": "Specify the domain or IP Address you wish to search for.",
-          "description": "Specify the domain or IP Address you wish to search for.",
+          "tooltip": "Specify the domain name or IP Address whose WHOIS information you want to retrieve from RiskIQ WHOISIQ.",
+          "description": "Specify the domain name or IP Address whose WHOIS information you want to retrieve from RiskIQ WHOISIQ.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -263,7 +263,7 @@
           "title": "Exact Match",
           "name": "exact",
           "tooltip": "Search for an exact match. Valid values are true and false.",
-          "description": "Search for an exact match. Valid values are true and false.",
+          "description": "Select this checkbox if you retrieve only those results from RiskIQ WHOISIQ that are an exact match to the domain name or IP address you have specified.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -272,8 +272,8 @@
         {
           "title": "Maximum Results",
           "name": "maxResults",
-          "tooltip": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
-          "description": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "tooltip": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000.",
+          "description": "Specify the maximum number of results that this operation should return. By default, this is set to 1000 and its maximum value is 10000.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -291,7 +291,7 @@
     {
       "operation": "get_email",
       "title": "Get Email Address",
-      "description": "Get WHOIS records associated with an email address.",
+      "description": "Retrieves WHOIS records associated with a specific email address from RiskIQ WHOISIQ based on the email address and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_email",
       "output_schema": {
@@ -355,7 +355,7 @@
               "country": "",
               "telephone": ""
             },
-            "zone": {},
+            "zone": "",
             "text": "",
             "lastLoadedAt": ""
           }
@@ -365,8 +365,8 @@
         {
           "title": "Email",
           "name": "email",
-          "tooltip": "Specify the email address you wish to search for.",
-          "description": "Specify the email address you wish to search for.",
+          "tooltip": "Specify the email address whose WHOIS information you want to retrieve from RiskIQ WHOISIQ.",
+          "description": "Specify the email address whose WHOIS information you want to retrieve from RiskIQ WHOISIQ.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -375,8 +375,8 @@
         {
           "title": "Exact Match",
           "name": "exact",
-          "tooltip": "Search for an exact match. Valid values are true and false.",
-          "description": "Search for an exact match. Valid values are true and false.",
+          "tooltip": "Select this checkbox if you retrieve only those results from RiskIQ WHOISIQ that are an exact match to the email address you have specified.",
+          "description": "Select this checkbox if you retrieve only those results from RiskIQ WHOISIQ that are an exact match to the email address you have specified.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -386,7 +386,7 @@
           "title": "Maximum Results",
           "name": "maxResults",
           "tooltip": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
-          "description": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "description": "Specify the maximum number of results that this operation should return. By default, this is set to 1000 and its maximum value is 10000.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -404,7 +404,7 @@
     {
       "operation": "get_name",
       "title": "Get Name",
-      "description": "Get WHOIS records associated with a name.",
+      "description": "Retrieves WHOIS records associated with a specific name from RiskIQ WHOISIQ based on the name and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_name",
       "output_schema": {
@@ -478,8 +478,8 @@
         {
           "title": "Name",
           "name": "name",
-          "tooltip": "Specify the name you wish to search for..",
-          "description": "Specify the name you wish to search for..",
+          "tooltip": "Specify the name whose WHOIS information you want to retrieve from RiskIQ WHOISIQ. ",
+          "description": "Specify the name whose WHOIS information you want to retrieve from RiskIQ WHOISIQ.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -489,7 +489,7 @@
           "title": "Exact Match",
           "name": "exact",
           "tooltip": "Search for an exact match. Valid values are true and false.",
-          "description": "Search for an exact match. Valid values are true and false.",
+          "description": "Select this checkbox if you retrieve only those results from RiskIQ WHOISIQ that are an exact match to the name you have specified.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -499,7 +499,7 @@
           "title": "Maximum Results",
           "name": "maxResults",
           "tooltip": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
-          "description": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "description": "Specify the maximum number of results that this operation should return. By default, this is set to 1000 and its maximum value is 10000.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -517,7 +517,7 @@
     {
       "operation": "get_name_server",
       "title": "Get Name Server",
-      "description": "Get WHOIS records associated with a name server.",
+      "description": "Retrieves WHOIS records associated with a specific name server from RiskIQ WHOISIQ based on the name server and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_name_server",
       "output_schema": {
@@ -581,7 +581,7 @@
               "country": "",
               "telephone": ""
             },
-            "zone": {},
+            "zone": "",
             "text": "",
             "lastLoadedAt": ""
           }
@@ -591,8 +591,8 @@
         {
           "title": "Name Server",
           "name": "nameserver",
-          "tooltip": "Specify the name server you wish to search for..",
-          "description": "Specify the name server you wish to search for.",
+          "tooltip": "Specify the name server whose WHOIS information you want to retrieve from RiskIQ WHOISIQ.",
+          "description": "Specify the name server whose WHOIS information you want to retrieve from RiskIQ WHOISIQ.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -601,8 +601,8 @@
         {
           "title": "Exact Match",
           "name": "exact",
-          "tooltip": "Search for an exact match. Valid values are true and false.",
-          "description": "Search for an exact match. Valid values are true and false.",
+          "tooltip": "Select this checkbox if you retrieve only those results from RiskIQ WHOISIQ that are an exact match to the name server you have specified.",
+          "description": "Select this checkbox if you retrieve only those results from RiskIQ WHOISIQ that are an exact match to the name server you have specified.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -611,8 +611,8 @@
         {
           "title": "Maximum Results",
           "name": "maxResults",
-          "tooltip": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
-          "description": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "tooltip": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000.",
+          "description": "Specify the maximum number of results that this operation should return. By default, this is set to 1000 and its maximum value is 10000.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -630,7 +630,7 @@
     {
       "operation": "get_org",
       "title": "Get Organization",
-      "description": "Get WHOIS records associated with an organization.",
+      "description": "Retrieves WHOIS records associated with a specific organization from RiskIQ WHOISIQ based on the organization name and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_org",
       "output_schema": {
@@ -694,7 +694,7 @@
               "country": "",
               "telephone": ""
             },
-            "zone": {},
+            "zone": "",
             "text": "",
             "lastLoadedAt": ""
           }
@@ -704,8 +704,8 @@
         {
           "title": "Organization",
           "name": "org",
-          "tooltip": "Specify the organization you wish to search for.",
-          "description": "Specify the organization you wish to search for.",
+          "tooltip": "Specify the name of the organization whose WHOIS information you want to retrieve from RiskIQ WHOISIQ.",
+          "description": "Specify the name of the organization whose WHOIS information you want to retrieve from RiskIQ WHOISIQ.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -715,7 +715,7 @@
           "title": "Exact Match",
           "name": "exact",
           "tooltip": "Search for an exact match. Valid values are true and false.",
-          "description": "Search for an exact match. Valid values are true and false.",
+          "description": "Select this checkbox if you retrieve only those results from RiskIQ WHOISIQ that are an exact match to the organization you have specified.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -725,7 +725,7 @@
           "title": "Maximum Results",
           "name": "maxResults",
           "tooltip": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
-          "description": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "description": "Specify the maximum number of results that this operation should return. By default, this is set to 1000 and its maximum value is 10000.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -743,7 +743,7 @@
     {
       "operation": "get_phone",
       "title": "Get Phone Number",
-      "description": "Get WHOIS records associated with a phone number.",
+      "description": "Retrieves WHOIS records associated with a specific phone number from RiskIQ WHOISIQ based on the phone number and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_phone",
       "output_schema": {
@@ -807,7 +807,7 @@
               "country": "",
               "telephone": ""
             },
-            "zone": {},
+            "zone": "",
             "text": "",
             "lastLoadedAt": ""
           }
@@ -817,8 +817,8 @@
         {
           "title": "Phone Number",
           "name": "phone",
-          "tooltip": "Specify the phone number you wish to search for.",
-          "description": "Specify the phone number you wish to search for.",
+          "tooltip": "Specify the phone number whose WHOIS information you want to retrieve from RiskIQ WHOISIQ.",
+          "description": "Specify the phone number whose WHOIS information you want to retrieve from RiskIQ WHOISIQ.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -828,7 +828,7 @@
           "title": "Exact Match",
           "name": "exact",
           "tooltip": "Search for an exact match. Valid values are true and false.",
-          "description": "Search for an exact match. Valid values are true and false.",
+          "description": "Select this checkbox if you retrieve only those results from RiskIQ WHOISIQ that are an exact match to the phone number you have specified.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -839,7 +839,7 @@
           "title": "Maximum Results",
           "name": "maxResults",
           "tooltip": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
-          "description": "Maximum number of results to return. Defaults to 1000 and maximum value is 10000..",
+          "description": "Specify the maximum number of results that this operation should return. By default, this is set to 1000 and its maximum value is 10000.",
           "required": false,
           "editable": true,
           "visible": true,
